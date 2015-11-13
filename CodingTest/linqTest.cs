@@ -15,21 +15,40 @@ namespace CodingTest
         {
             Profile[] arrProfile = 
             {
-                new Profile(){Name="정우성", Height=186},
-                new Profile(){Name="김태희", Height=158},
+                new Profile(){Name="정우성", Height=178},
+                new Profile(){Name="김태희", Height=172},
                 new Profile(){Name="고현정", Height=172},
                 new Profile(){Name="이문세", Height=178},
                 new Profile(){Name="하하", Height=172}        
             };
-
+            Console.WriteLine("simple Linq");
             simple(arrProfile);
 
-            join(arrProfile);
+            Console.WriteLine("group Linq");
+            group(arrProfile);
         }
 
-        private void join(Profile[] arrProfile)
+        private void group(Profile[] arrProfile)
         {
-            
+            var listProfile1 = from profile in arrProfile
+                               orderby profile.Height
+                              group profile by profile.Height into g
+                              select new { GroupKey = g.Key, Count = g.Count()};
+
+            Console.WriteLine("linq 쿼리문");
+            foreach (var profile in listProfile1)
+            {
+                Console.WriteLine("키 : {0}, 인원수 : {1}", profile.GroupKey, profile.Count);
+            }
+            Console.WriteLine();
+
+            var listProfile2 = arrProfile.OrderBy(profile => profile.Height).GroupBy(profile => profile.Height).Select(profile => new { GroupKey = profile.Key, Count = profile.Count() });
+            Console.WriteLine("람다식");
+            foreach (var profile in listProfile1)
+            {
+                Console.WriteLine("키 : {0}, 인원수 : {1}", profile.GroupKey, profile.Count);
+            }
+            Console.WriteLine();
         }
 
         private static void simple(Profile[] arrProfile)
@@ -59,6 +78,7 @@ namespace CodingTest
                             });
             foreach (var profile in profiles1)
                 Console.WriteLine("{0}, {1}", profile.Name, profile.InchHeight);
+            Console.WriteLine();
         }
     }
 
