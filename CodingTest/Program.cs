@@ -18,7 +18,7 @@ namespace CodingTest
                 Console.WriteLine("4.Func 델리게이트(반환값이 있음)");
                 Console.WriteLine("5.Linq");
                 Console.WriteLine("6.Thread");
-                Console.WriteLine("6.Task");
+                Console.WriteLine("7.Task");
 
                 Console.WriteLine("Press Key!!");
                 string result = Console.ReadLine();
@@ -32,6 +32,7 @@ namespace CodingTest
                     case "4": new funcDelegate(); break;
                     case "5": new linqTest(); break;
                     case "6": new ThreadTest(); break;
+                    case "7": new TaskTest(); break;
 
                     default: return;
                 }
