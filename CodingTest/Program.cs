@@ -6,6 +6,39 @@ using System.Threading.Tasks;
 
 namespace CodingTest
 {
+    public class A
+    {
+        protected int intA = 5;
+        protected A()
+            : base()
+        {
+            Console.WriteLine("생성 A()");
+        }
+    }
+    public class B : A
+    {
+        protected int intB = 10;
+        protected B()
+            : base()
+        {
+            Console.WriteLine("생성 B()");
+        }
+    }
+    public class C : B
+    {
+        public int intB;
+
+        public C()
+            : base()
+        {
+            Console.WriteLine("생성 C()");
+            this.intB = base.intB;
+            Console.WriteLine(this.intB);
+            this.intB = base.intA;
+            Console.WriteLine(this.intB);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
