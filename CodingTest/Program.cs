@@ -52,6 +52,7 @@ namespace CodingTest
                 Console.WriteLine("5.Linq");
                 Console.WriteLine("6.Thread");
                 Console.WriteLine("7.Task");
+                Console.WriteLine("8.AsynTaskTest");
 
                 Console.WriteLine("Press Key!!");
                 string result = Console.ReadLine();
@@ -66,6 +67,7 @@ namespace CodingTest
                     case "5": new linqTest(); break;
                     case "6": new ThreadTest(); break;
                     case "7": new TaskTest(); break;
+                    case "8": new AsynTaskTest(); break;
 
                     default: return;
                 }

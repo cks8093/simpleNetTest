@@ -48,6 +48,7 @@
     <Compile Include="linqTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AsynTaskTest.cs" />
     <Compile Include="TaskTest.cs" />
     <Compile Include="ThreadTest.cs" />
   </ItemGroup>
